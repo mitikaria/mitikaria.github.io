@@ -3,12 +3,12 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Miti Karia | Portfolio',
-  description: 'Product Designer & Visual Storyteller - Portfolio showcasing UX/UI design, branding, and creative projects.',
+  description: 'Creative Strategist & Visual Storyteller - Portfolio showcasing UX/UI design, branding, and creative projects.',
   keywords: ['portfolio', 'design', 'UX', 'UI', 'product design', 'Miti Karia'],
   authors: [{ name: 'Miti Karia' }],
   openGraph: {
     title: 'Miti Karia | Portfolio',
-    description: 'Product Designer & Visual Storyteller',
+    description: 'Creative Strategist & Visual Storyteller',
     type: 'website',
   },
 }
