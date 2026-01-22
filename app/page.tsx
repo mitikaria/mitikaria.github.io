@@ -44,9 +44,8 @@ export default function HomePage() {
 
   useEffect(() => {
     // Load metadata and initialize
-    // Use basePath from environment or default
-    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
-    fetch(`${basePath}/assets/portfolio/metadata.json`)
+    // No basePath needed - repo is mitikaria.github.io (served at root)
+    fetch('/assets/portfolio/metadata.json')
       .then(res => res.json())
       .then(data => {
         if (data.total_pages) {
