@@ -9,6 +9,10 @@ const nextConfig = {
   // Base path for GitHub Pages (repo name: miti-karia-portfolio)
   basePath: '/miti-karia-portfolio',
   trailingSlash: true,
+  // Set environment variable for basePath
+  env: {
+    NEXT_PUBLIC_BASE_PATH: '/miti-karia-portfolio',
+  },
 }
 
 export default nextConfig

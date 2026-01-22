@@ -44,7 +44,9 @@ export default function HomePage() {
 
   useEffect(() => {
     // Load metadata and initialize
-    fetch('/assets/portfolio/metadata.json')
+    // Use basePath from environment or default
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+    fetch(`${basePath}/assets/portfolio/metadata.json`)
       .then(res => res.json())
       .then(data => {
         if (data.total_pages) {
