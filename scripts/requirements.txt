@@ -1,0 +1,3 @@
+# Requirements for PDF extraction script
+pymupdf>=1.23.0
+pillow>=10.0.0

@@ -1,0 +1,5 @@
+# Placeholder for extracted assets
+# Run the extraction script to populate this directory:
+#   npm run extract-assets
+# Or:
+#   python3 scripts/extract_pdf_assets.py

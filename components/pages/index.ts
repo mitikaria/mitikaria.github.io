@@ -1,0 +1,7 @@
+export { default as Page01Cover } from './Page01Cover'
+export { default as Page02Photo } from './Page02Photo'
+export { default as Page03Toolkit } from './Page03Toolkit'
+export { default as Page04BriefResume } from './Page04BriefResume'
+export { default as Page05Contents } from './Page05Contents'
+export { default as GenericPage } from './GenericPage'
+export { default as PageWrapper } from './PageWrapper'
