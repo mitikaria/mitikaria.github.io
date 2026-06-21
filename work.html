@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work · Miti Karia</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #f5f2ed; --dark: #1a1a1a; --darker: #111;
+      --warm-brown: #6b5d4e; --muted: #5a5a5a; --light-muted: #8a7e6e;
+      --border: rgba(0,0,0,0.11); --white: #ffffff;
+      --text-body: 17px;
+      --text-body-lh: 1.75;
+      --text-page: clamp(44px, 5vw, 64px);
+      --text-section: clamp(36px, 4vw, 48px);
+      --text-subsection: clamp(28px, 3vw, 36px);
+      --text-card: clamp(22px, 2.2vw, 28px);
+      --text-block: clamp(20px, 2vw, 24px);
+      --text-project: clamp(26px, 2.8vw, 34px);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: var(--text-body); color: var(--dark); background: var(--cream); line-height: var(--text-body-lh); }
+
+    /* NAV */
+    nav.site-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; background: var(--cream); border-bottom: 0.5px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-name { font-family: 'DM Serif Display', serif; font-size: 18px; letter-spacing: -0.3px; color: var(--dark); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: #6b6b6b; text-decoration: none; letter-spacing: 0.6px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-links a.active { color: var(--dark); border-bottom: 1.5px solid var(--dark); padding-bottom: 2px; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 3rem 2rem 2.5rem;
+      border-bottom: 0.5px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(245,242,237,0.9) 100%);
+    }
+    .page-hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      border: 0.5px solid var(--border);
+      border-radius: 9px;
+      background: var(--white);
+      box-shadow: 0 8px 24px rgba(26,26,26,0.05);
+      padding: clamp(1.35rem, 2.2vw, 2rem);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: end;
+    }
+    .page-tag { display: inline-block; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--light-muted); border: 0.5px solid #c4b89e; padding: 5px 12px; border-radius: 2px; margin-bottom: 1.15rem; width: fit-content; }
+    .page-headline { font-family: 'DM Serif Display', serif; font-size: var(--text-page); line-height: 1.06; letter-spacing: -1.2px; color: var(--dark); max-width: 680px; }
+    .page-headline em { font-style: italic; color: var(--warm-brown); }
+    .page-header-right { align-self: stretch; display: flex; flex-direction: column; justify-content: center; gap: 1.25rem; }
+    .page-intro { font-size: 17px; color: var(--muted); line-height: 1.82; max-width: 520px; }
+    .hero-note {
+      font-family: 'DM Serif Display', serif;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+      font-style: italic;
+      color: var(--light-muted);
+      border-left: 2px solid #ddd3c3;
+      padding-left: 0.8rem;
+    }
+
+    /* ── SECTION BANNER ── */
+    .section-banner {
+      background: var(--white);
+      border-top: 3px solid var(--dark);
+      border-bottom: 0.5px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex; justify-content: space-between; align-items: baseline;
+    }
+    .section-banner-label { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--light-muted); }
+    .section-banner-title { font-family: 'DM Serif Display', serif; font-size: var(--text-section); letter-spacing: -0.5px; color: var(--dark); line-height: 1.1; }
+    .section-banner-stacked {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+    .section-banner--transition {
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(249,246,241,0.65) 100%);
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      padding: 1.35rem 3rem 1.25rem;
+    }
+    .section-banner--transition .section-banner-label {
+      font-size: 11px;
+      letter-spacing: 2.4px;
+      color: #9a8f82;
+    }
+    .section-banner--transition .section-banner-title {
+      font-size: clamp(22px, 2.6vw, 28px);
+      letter-spacing: -0.35px;
+    }
+    .section-banner--creative {
+      align-items: flex-start;
+    }
+
+    /* ── PROJECT SECTION ── */
+    .project-section { border-bottom: 3px solid var(--dark); }
+    .project-section:last-child { border-bottom: none; }
+    .main-work-intro {
+      padding: 0.65rem 3rem 1.35rem;
+      font-size: 14px;
+      color: #6f675c;
+      line-height: 1.7;
+      background: transparent;
+      border-bottom: none;
+      max-width: 720px;
+    }
+
+    /* EXPERIENCE CARDS , collapsed index layout */
+    .experience-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0.25rem 2rem 3.5rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(245,242,237,0.85) 100%);
+      border-bottom: 0.5px solid var(--border);
+      margin-bottom: 3.25rem;
+    }
+    .experience-card {
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(26,26,26,0.05);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+    .experience-card:hover,
+    .experience-card:focus-within {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(26,26,26,0.1);
+      border-color: rgba(0,0,0,0.22);
+    }
+    .experience-card summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.15rem 1.35rem 1.2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem 1.25rem;
+      align-items: start;
+      background: linear-gradient(165deg, rgba(255,255,255,0.98), rgba(247,243,236,0.55));
+      border-bottom: 0.5px solid transparent;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .experience-card summary::-webkit-details-marker { display: none; }
+    .experience-card[open] summary {
+      border-bottom-color: var(--border);
+      background: linear-gradient(165deg, rgba(255,255,255,0.95), rgba(245,242,237,0.45));
+    }
+    .experience-card:hover .experience-chip,
+    .experience-card:focus-within .experience-chip {
+      background: var(--dark);
+      color: var(--cream);
+      border-color: var(--dark);
+    }
+    .experience-chip {
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--light-muted);
+      border: 0.5px solid #d7cfbf;
+      padding: 5px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      width: fit-content;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .experience-summary-main {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      align-items: flex-start;
+    }
+    .experience-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: var(--text-card);
+      color: var(--dark);
+      line-height: 1.12;
+      letter-spacing: -0.35px;
+      margin: 0;
+      font-weight: 400;
+    }
+    .experience-descriptor {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.45;
+      letter-spacing: 0;
+      text-transform: none;
+      margin: 0;
+      max-width: 42rem;
+    }
+    .experience-summary-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.35rem;
+    }
+    .experience-summary-tag {
+      font-size: 10px;
+      letter-spacing: 0.15px;
+      color: #5a5247;
+      background: #f6f1e8;
+      border: 0.5px solid #d8d0c2;
+      border-radius: 999px;
+      padding: 4px 9px;
+    }
+    .experience-toggle {
+      pointer-events: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 118px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--dark);
+      border: 0.5px solid rgba(0,0,0,0.22);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: rgba(255,255,255,0.92);
+      margin-top: 1.65rem;
+      align-self: start;
+    }
+    .experience-toggle-open { display: inline; }
+    .experience-toggle-close { display: none; }
+    .experience-card[open] .experience-toggle-open { display: none; }
+    .experience-card[open] .experience-toggle-close { display: inline; }
+    .experience-card-content { animation: fadeUp 0.35s ease both; }
+
+    /* PROJECT HEADER BAR */
+    .project-header {
+      background: var(--dark);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .project-number { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 0.75rem; }
+    .project-org { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem; letter-spacing: 0.3px; }
+    .project-role { font-size: 11px; color: rgba(255,255,255,0.28); }
+    .project-title { font-family: 'DM Serif Display', serif; font-size: var(--text-project); color: rgba(255,255,255,0.95); line-height: 1.15; letter-spacing: -0.5px; }
+    .project-title em { font-style: italic; color: rgba(255,255,255,0.5); }
+    .project-proves-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 0.75rem; }
+    .project-proves-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .project-proves-tag { font-size: 11px; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 2px; }
+
+    /* PROJECT BODY */
+    .project-body { background: var(--cream); }
+
+    /* BRIEF + KPIs ROW */
+    .brief-kpi-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .brief-block { padding: 3rem 3rem; border-right: 0.5px solid var(--border); }
+    .kpi-block { padding: 3rem 3rem; }
+    .block-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #3f352a;
+      margin-bottom: 1.35rem;
+      background: rgba(209, 195, 172, 0.28);
+      border: 0.5px solid rgba(143, 126, 103, 0.35);
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+    .block-heading { font-family: 'DM Serif Display', serif; font-size: var(--text-block); color: var(--dark); margin-bottom: 0.9rem; line-height: 1.2; }
+    .block-body { font-size: var(--text-body); color: var(--muted); line-height: var(--text-body-lh); }
+    .block-body p + p { margin-top: 0.85rem; }
+
+    /* KPI GRID */
+    .kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .kpi-item { background: var(--white); border: 0.5px solid var(--border); border-radius: 3px; padding: 1.25rem 1rem; }
+    .kpi-num { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--dark); letter-spacing: -0.5px; line-height: 1; margin-bottom: 0.35rem; }
+    .kpi-label { font-size: 11px; color: var(--light-muted); line-height: 1.4; }
+
+    /* PROBLEM / INSIGHT / IDEA ROW */
+    .pii-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border-bottom: 0.5px solid var(--border);
+      border-top: 0.5px solid var(--border);
+    }
+    .pii-block { padding: 2.5rem; border-right: 0.5px solid var(--border); }
+    .pii-block:last-child { border-right: none; }
+
+    /* PROCESS BLOCK */
+    .process-block {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .process-left { padding: 3rem; border-right: 0.5px solid var(--border); }
+    .process-right { padding: 3rem; }
+    .process-steps { display: flex; flex-direction: column; gap: 0; }
+    .process-step { display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 0.5px solid var(--border); align-items: flex-start; }
+    .process-step:last-child { border-bottom: none; }
+    .process-step-num { font-family: 'DM Serif Display', serif; font-size: 13px; color: var(--light-muted); flex-shrink: 0; width: 20px; }
+    .process-step-text { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .process-step-text strong { color: var(--dark); font-weight: 500; }
+    .event-timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+      padding: 2rem 3rem;
+      border-bottom: 0.5px solid var(--border);
+      background: #f9f6f1;
+    }
+    .event-timeline-col {
+      border: 0.5px solid var(--border);
+      border-radius: 3px;
+      background: var(--white);
+      padding: 1rem;
+    }
+    .event-timeline-label {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(15px, 1.6vw, 17px);
+      letter-spacing: -0.2px;
+      text-transform: none;
+      color: var(--dark);
+      margin-bottom: 0.55rem;
+    }
+    .process-block--phases {
+      display: block;
+    }
+    .process-block--phases .process-left {
+      border-right: none;
+      border-bottom: 0.5px solid var(--border);
+      padding: 2.5rem 3rem 1.25rem;
+    }
+    .process-block--phases .process-right {
+      padding: 1.5rem 3rem 2.5rem;
+    }
+    .process-block--phases .event-timeline {
+      padding: 0;
+      border-bottom: none;
+      background: transparent;
+    }
+    .event-timeline-copy {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    /* RESULT BLOCK */
+    .result-block {
+      background: var(--white);
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .result-left { padding: 3rem; border-right: 0.5px solid var(--border); }
+    .result-right { padding: 3rem; }
+    .result-achieved { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1rem; }
+    .result-achieved-item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 13.5px; color: #4b4339; line-height: 1.55; padding: 0.85rem 0; border-bottom: 0.5px solid var(--border); }
+    .result-achieved-item:last-child { border-bottom: none; }
+    .result-kpi-strip {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+    }
+    .result-kpi-pill {
+      background: #f7f3ec;
+      border: 0.5px solid rgba(0,0,0,0.11);
+      border-radius: 3px;
+      padding: 0.65rem 0.7rem;
+    }
+    .result-kpi-pill-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--dark);
+      line-height: 1.05;
+      margin-bottom: 0.15rem;
+    }
+    .result-kpi-pill-label {
+      font-size: 10px;
+      letter-spacing: 0.35px;
+      color: var(--light-muted);
+      text-transform: uppercase;
+      line-height: 1.35;
+    }
+    .result-tick { width: 18px; height: 18px; border-radius: 50%; background: var(--dark); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .result-tick svg { width: 9px; height: 9px; }
+
+    /* PROOF GALLERY — horizontal scroll strip after each project */
+    .evidence-gallery {
+      position: relative;
+      padding: 1.65rem 0 1.85rem;
+      background: var(--darker);
+      border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+    .evidence-gallery::before,
+    .evidence-gallery::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 56px;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .evidence-gallery::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--darker) 15%, transparent);
+    }
+    .evidence-gallery::after {
+      right: 0;
+      background: linear-gradient(270deg, var(--darker) 15%, transparent);
+    }
+    .evidence-gallery-track {
+      display: flex;
+      align-items: stretch;
+      gap: 0.7rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x proximity;
+      scroll-padding-inline: 3.5rem;
+      padding: 0 3.5rem 0.35rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+    }
+    .evidence-gallery-track::-webkit-scrollbar { height: 4px; }
+    .evidence-gallery-track::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+    }
+    .evidence-gallery-item {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      height: clamp(210px, 30vw, 290px);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 0.5px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .evidence-gallery-item.is-error { display: none; }
+    .evidence-gallery-img {
+      display: block;
+      height: 100%;
+      width: auto;
+      max-width: none;
+      object-fit: contain;
+      background: rgba(0, 0, 0, 0.12);
+    }
+    .evidence-gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      background: var(--cream);
+      color: var(--dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.08);
+      transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .evidence-gallery-nav svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+    .evidence-gallery-nav:hover:not(:disabled) {
+      background: #fff;
+      color: var(--dark);
+      transform: translateY(-50%) scale(1.06);
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(0, 0, 0, 0.1);
+    }
+    .evidence-gallery-nav:disabled {
+      opacity: 0.38;
+      cursor: default;
+      background: rgba(249, 246, 241, 0.55);
+      border-color: rgba(255, 255, 255, 0.22);
+      box-shadow: none;
+    }
+    .evidence-gallery-nav--prev { left: 1rem; }
+    .evidence-gallery-nav--next { right: 1rem; }
+
+    .work-mini {
+      margin: 0 3rem;
+      padding: 1rem 1.15rem 1.15rem;
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.94);
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+    .work-mini + .brief-kpi-row { margin-top: 0; }
+    .work-mini-k {
+      font-size: 10px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--light-muted);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .work-mini-v { color: #3a3632; display: block; margin-bottom: 0.65rem; }
+    .work-mini-v:last-child { margin-bottom: 0; }
+    .work-mini-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .work-mini-grid-3 > div {
+      border: 0.5px solid var(--border);
+      border-radius: 3px;
+      padding: 0.75rem 0.8rem;
+      background: rgba(249,246,241,0.5);
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .work-mini-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.65rem;
+      margin-top: 0.5rem;
+    }
+    .work-mini-grid-4 > div {
+      border: 0.5px solid var(--border);
+      border-radius: 3px;
+      padding: 0.65rem 0.75rem;
+      background: rgba(249,246,241,0.5);
+      font-size: 12px;
+      line-height: 1.52;
+      color: var(--muted);
+    }
+    .work-mini-ba {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+      margin-top: 0.45rem;
+    }
+    .work-mini-ba > div {
+      border: 0.5px solid var(--border);
+      border-radius: 3px;
+      padding: 0.75rem 0.85rem;
+      background: rgba(249,246,241,0.45);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .work-mini-ba strong { display: block; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--light-muted); margin-bottom: 0.35rem; font-weight: 500; }
+    .work-mini-tone-list {
+      margin-top: 0.45rem;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .work-mini-tone-list dt { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--light-muted); margin-top: 0.5rem; }
+    .work-mini-tone-list dt:first-child { margin-top: 0; }
+    .work-mini-tone-list dd { margin: 0.2rem 0 0; color: #3a3632; }
+    .work-mini-phase {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8a7e6e;
+      margin-bottom: 0.35rem;
+      font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .work-mini--snapshot { margin-bottom: 0; border-bottom: none; border-radius: 4px 4px 0 0; }
+    .work-mini--snapshot + .brief-kpi-row { border-top: none; }
+    .work-mini--message { margin-top: 0; border-top: none; border-radius: 0; }
+
+    /* ── CREATIVE THINKING ── */
+    .creative-section-wrap {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(249,246,241,0.65) 55%, var(--cream) 100%);
+      border-top: 3px solid var(--dark);
+      padding-bottom: 2.5rem;
+    }
+    .section-banner--creative {
+      padding: 2.5rem 3rem 1.25rem;
+      background: transparent;
+      border-top: none;
+      border-bottom: none;
+    }
+    .section-banner--creative .section-banner-label {
+      font-size: 11px;
+      letter-spacing: 2.4px;
+      color: var(--light-muted);
+    }
+    .section-banner--creative .section-banner-title {
+      font-size: var(--text-section);
+      margin-top: 0.35rem;
+    }
+    .supporting-intro-wrap {
+      padding: 0 3rem 1.5rem;
+      background: transparent;
+      border-bottom: none;
+    }
+    .supporting-intro {
+      font-size: var(--text-body);
+      color: var(--muted);
+      line-height: var(--text-body-lh);
+      max-width: 920px;
+    }
+    .creative-portfolio-strip {
+      margin: 0 3rem 2rem;
+      background: var(--white);
+      border: 0.5px solid rgba(0,0,0,0.14);
+      border-radius: 6px;
+      padding: 1rem 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      box-shadow: 0 4px 14px rgba(26,26,26,0.04);
+    }
+    .creative-portfolio-label {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(18px, 2vw, 22px);
+      letter-spacing: -0.3px;
+      text-transform: none;
+      color: var(--dark);
+      display: block;
+      margin-bottom: 0.35rem;
+      font-weight: 400;
+    }
+    .creative-portfolio-strip > div {
+      flex: 1;
+      min-width: 0;
+    }
+    .creative-portfolio-strip p {
+      font-size: var(--text-body);
+      color: var(--muted);
+      line-height: var(--text-body-lh);
+      max-width: 920px;
+    }
+    .creative-portfolio-link {
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 0.5px solid var(--dark);
+      border-radius: 999px;
+      padding: 10px 16px;
+      white-space: nowrap;
+      background: var(--cream);
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .creative-portfolio-link:hover {
+      background: var(--dark);
+      color: var(--cream);
+      border-color: var(--dark);
+    }
+    .creative-preview-wrap {
+      padding: 0 3rem 1.75rem;
+    }
+    .creative-preview-label {
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--light-muted);
+      display: block;
+      margin-bottom: 0.45rem;
+    }
+    .creative-preview-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: var(--text-card);
+      letter-spacing: -0.35px;
+      color: var(--dark);
+      margin-bottom: 0.65rem;
+    }
+    .creative-preview-intro {
+      font-size: var(--text-body);
+      color: var(--muted);
+      line-height: var(--text-body-lh);
+      max-width: none;
+    }
+    .supporting-section { padding: 0 3rem 2.5rem; border-bottom: none; background: transparent; }
+    .supporting-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.35rem;
+      width: 100%;
+    }
+    .supporting-card {
+      padding: 2.5rem 2.35rem 2.6rem;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      border: 0.5px solid var(--border);
+      border-radius: 6px;
+      background: var(--white);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+    .supporting-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(26,26,26,0.08);
+      border-color: rgba(0,0,0,0.18);
+    }
+    .supporting-card-env {
+      font-size: 10px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: #a39688;
+      margin-bottom: 0.55rem;
+      line-height: 1.4;
+    }
+    .supporting-card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: var(--text-card);
+      color: var(--dark);
+      line-height: 1.15;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.85rem;
+    }
+    .supporting-card-body {
+      font-size: var(--text-body);
+      color: var(--muted);
+      line-height: var(--text-body-lh);
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+    .supporting-card-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: auto; }
+    .supporting-card-tag {
+      font-size: 11px;
+      color: #5a5247;
+      background: #f6f1e8;
+      border: 0.5px solid #d8d0c2;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    /* FOOTER */
+    footer { padding: 2.5rem 3rem; background: var(--darker); display: flex; flex-direction: column; align-items: center; gap: 0.3rem; text-align: center; }
+    .footer-name { font-family: 'DM Serif Display', serif; font-size: 15px; color: rgba(255,255,255,0.68); }
+    .footer-title { font-size: 12px; color: rgba(255,255,255,0.32); letter-spacing: 0.5px; }
+    .footer-location { font-size: 11px; color: rgba(255,255,255,0.2); margin-top: 0.2rem; }
+    .footer-links { margin-top: 0.35rem; display: flex; gap: 0.8rem; }
+    .footer-link { font-size: 12px; color: rgba(255,255,255,0.6); text-decoration: underline; text-underline-offset: 2px; }
+    .footer-link:hover { color: rgba(255,255,255,0.86); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    .page-tag { animation: fadeUp 0.5s ease both 0.1s; }
+    .page-headline { animation: fadeUp 0.5s ease both 0.2s; }
+
+    @media (max-width: 900px) {
+      .experience-stack { padding: 1rem 1rem 2rem; gap: 1rem; }
+      .experience-card summary {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 1rem 1.05rem;
+      }
+      .experience-chip { width: fit-content; }
+      .experience-title { font-size: 20px; }
+      .experience-toggle { width: fit-content; min-width: 0; margin-top: 0; align-self: flex-start; }
+      .work-mini { margin: 0 1.5rem; }
+      .work-mini-grid-3 { grid-template-columns: 1fr; }
+      .work-mini-grid-4 { grid-template-columns: 1fr 1fr; }
+      .work-mini-ba { grid-template-columns: 1fr; }
+      nav.site-nav { padding: 1.25rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .page-header { padding: 1.5rem 1rem 1.25rem; }
+      .page-hero { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.15rem; }
+      .section-banner { padding: 1.5rem 1.5rem; flex-direction: column; gap: 0.4rem; }
+      .section-banner--transition { padding: 1.15rem 1.5rem 1rem; }
+      .main-work-intro { padding: 0.55rem 1.5rem 1.05rem; max-width: none; }
+      .project-header { grid-template-columns: 1fr; padding: 2.5rem 1.5rem; gap: 2rem; }
+      .brief-kpi-row { grid-template-columns: 1fr; }
+      .brief-block { border-right: none; border-bottom: 0.5px solid var(--border); padding: 2.5rem 1.5rem; }
+      .kpi-block { padding: 2.5rem 1.5rem; }
+      .pii-row { grid-template-columns: 1fr; }
+      .pii-block { border-right: none; border-bottom: 0.5px solid var(--border); padding: 2rem 1.5rem; }
+      .process-block { grid-template-columns: 1fr; }
+      .process-left { border-right: none; border-bottom: 0.5px solid var(--border); padding: 2.5rem 1.5rem; }
+      .process-right { padding: 2.5rem 1.5rem; }
+      .event-timeline { grid-template-columns: 1fr; padding: 1.5rem; }
+      .result-block { grid-template-columns: 1fr; }
+      .result-left { border-right: none; border-bottom: 0.5px solid var(--border); padding: 2.5rem 1.5rem; }
+      .result-right { padding: 2.5rem 1.5rem; }
+      .evidence-gallery-track { scroll-padding-inline: 3.25rem; padding: 0 3.25rem 0.35rem; }
+      .evidence-gallery::before,
+      .evidence-gallery::after { width: 48px; }
+      .evidence-gallery-nav { width: 42px; height: 42px; }
+      .evidence-gallery-nav svg { width: 16px; height: 16px; }
+      .evidence-gallery-nav--prev { left: 0.65rem; }
+      .evidence-gallery-nav--next { right: 0.65rem; }
+      .supporting-intro-wrap { padding: 1.25rem 1.5rem 0.75rem; }
+      .section-banner--creative { padding: 2rem 1.5rem 1rem; }
+      .supporting-intro-wrap { padding: 0 1.5rem 1.1rem; }
+      .creative-portfolio-strip {
+        margin: 0 1.5rem 1.5rem;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .creative-portfolio-link { align-self: flex-start; }
+      .creative-preview-wrap { padding: 0 1.5rem 1.35rem; }
+      .supporting-section { padding: 0 1.5rem 2rem; }
+      .supporting-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .supporting-card { min-height: 0; padding: 2rem 1.75rem; }
+      .supporting-card { border-right: none; }
+      .footer-links { flex-direction: column; gap: 0.35rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-name" data-site-nav="home">Miti Karia</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link-item" data-site-nav="home">Home</a></li>
+      <li><a href="about.html" class="nav-link-item" data-site-nav="about">About</a></li>
+      <li><a href="work.html" class="nav-link-item" data-site-nav="work">Work</a></li>
+      <li><a href="index.html#contact" class="nav-link-item" data-site-nav="contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-hero">
+      <div class="page-header-left">
+        <span class="page-tag">Selected Work</span>
+        <h1 class="page-headline">
+          Work that shows the thinking,<br>
+          the structure, and <em>the result.</em>
+        </h1>
+      </div>
+      <div class="page-header-right">
+        <p class="page-intro">
+          This page brings together the work behind the claims: event communications, stakeholder coordination, campaign planning, repositioning, content systems and creative strategy. Each project shows the brief, the gap, the approach, the output and the proof.
+        </p>
+        <p class="hero-note">Five selected projects, followed by selected creative thinking.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="section-banner section-banner-stacked section-banner--transition">
+    <span class="section-banner-label">Main Work</span>
+    <span class="section-banner-title">Selected projects</span>
+  </div>
+  <p class="main-work-intro">Open each project to see the brief, approach, result and supporting materials.</p>
+
+  <!-- ══════════════════════════════════════════
+       01. TEDX GREENWICH
+  ══════════════════════════════════════════ -->
+  <section class="experience-stack">
+  <details id="tedx" class="experience-card">
+    <summary>
+      <div class="experience-summary-main">
+        <span class="experience-chip">Event Comms Plan</span>
+        <h3 class="experience-title">TEDx Greenwich</h3>
+        <p class="experience-descriptor">Event communications · stakeholder coordination · sponsor outreach</p>
+        <div class="experience-summary-tags">
+          <span class="experience-summary-tag">Event comms</span>
+          <span class="experience-summary-tag">Stakeholders</span>
+          <span class="experience-summary-tag">Partnerships</span>
+        </div>
+      </div>
+      <span class="experience-toggle">
+        <span class="experience-toggle-open">Open project</span>
+        <span class="experience-toggle-close">Close project</span>
+      </span>
+    </summary>
+    <div class="experience-card-content">
+
+  <div class="project-section">
+    <div class="project-header">
+      <div>
+        <div class="project-number">01 / 05</div>
+        <div class="project-org">February 2024 to January 2025</div>
+        <div class="project-role">Marketing Communications Associate</div>
+        <h2 class="project-title">Coordinating event communications <em>across speakers, sponsors and audiences.</em></h2>
+      </div>
+      <div>
+        <div class="project-proves-label">This project demonstrates</div>
+        <div class="project-proves-tags">
+          <span class="project-proves-tag">Event communications</span>
+          <span class="project-proves-tag">Stakeholder coordination</span>
+          <span class="project-proves-tag">Sponsor outreach</span>
+          <span class="project-proves-tag">Approval tracking</span>
+          <span class="project-proves-tag">Post-event reporting</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <!-- BRIEF + KPIs -->
+      <div class="brief-kpi-row">
+        <div class="brief-block">
+          <p class="block-label">Project brief</p>
+          <h3 class="block-heading">Build a clear communications flow for a public-facing TEDx event with multiple audiences, moving details and fixed deadlines.</h3>
+          <div class="block-body">
+            <p>The event needed communication that could hold together across speaker updates, sponsor outreach, partner conversations, audience-facing content and internal approvals. The challenge was not just writing the message. It was making sure the right version reached the right people at the right time.</p>
+          </div>
+        </div>
+        <div class="kpi-block">
+          <p class="block-label">Key KPIs</p>
+          <div class="kpi-grid">
+            <div class="kpi-item">
+              <div class="kpi-num">200+</div>
+              <div class="kpi-label">attendees supported through live event communications</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">15 - 25</div>
+              <div class="kpi-label">external organisations approached through sponsor and partner outreach</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">5 - 8</div>
+              <div class="kpi-label">conversations progressed into active sponsor or partner workflows</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROBLEM / INSIGHT / IDEA -->
+      <div class="pii-row">
+        <div class="pii-block">
+          <p class="block-label">The gap</p>
+          <h3 class="block-heading">The event had one public face, but many moving parts behind it.</h3>
+          <div class="block-body">
+            <p>Speakers, sponsors, partners, university teams and audience touchpoints all needed different information at different times. Without a clear communication rhythm, details could easily slip, duplicate or reach the wrong person.</p>
+          </div>
+        </div>
+        <div class="pii-block">
+          <p class="block-label">What I noticed</p>
+          <h3 class="block-heading">Most of the risk sat between people, not inside the copy.</h3>
+          <div class="block-body">
+            <p>The writing mattered, but the bigger issue was coordination: who needed an update, who owned the approval, what version was final and when each message needed to go out.</p>
+          </div>
+        </div>
+        <div class="pii-block">
+          <p class="block-label">The approach</p>
+          <h3 class="block-heading">Create one communications plan across audience, speaker, sponsor and internal updates.</h3>
+          <div class="block-body">
+            <p>I used shared planning, clearer message routes and approval tracking to keep public-facing content, stakeholder updates and post-event reporting aligned through the event cycle.</p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- PROCESS -->
+      <div class="process-block process-block--phases">
+        <div class="process-left">
+          <p class="block-label">Process</p>
+          <h3 class="block-heading">How I kept the communication moving.</h3>
+        </div>
+        <div class="process-right">
+          <div class="event-timeline">
+            
+            <div class="event-timeline-col">
+              <p class="event-timeline-label">Before the event</p>
+              <p class="event-timeline-copy">Mapped speakers, sponsors, partners, and university stakeholders. Built a shared plan across web, social, email, and speaker updates. Ran sponsor outreach across 15 to 25 organisations.</p>
+            </div>
+            <div class="event-timeline-col">
+              <p class="event-timeline-label">During the event</p>
+              <p class="event-timeline-copy">Kept event information, stakeholder coordination, and audience-facing updates moving through clear approval routes aligned with TEDx expectations.</p>
+            </div>
+            <div class="event-timeline-col">
+              <p class="event-timeline-label">After the event</p>
+              <p class="event-timeline-copy">Closed the loop with post-event reporting, partner follow-up, and planning inputs for the next cycle. Five to eight organisations progressed into active sponsor or partner workflows.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!-- RESULT -->
+      <div class="result-block">
+        
+        <div class="result-left">
+          <p class="block-label">Final result</p>
+          <h3 class="block-heading">A clearer communications system for a live event with multiple audiences and approval points.</h3>
+          <div class="block-body" style="margin-top: 1rem;">
+            <p>The work helped keep public updates, speaker information, sponsor outreach and internal coordination moving through one clearer system. That mattered because the event had several audiences, fixed deadlines and little room for confusion once information went public.</p>
+            <p>The result was not just more content. It was a more reliable way to plan, approve and deliver communication across the event cycle.</p>
+            <div class="result-kpi-strip">
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">200+</div>
+              <div class="result-kpi-pill-label">TEDx live event attendees</div></div>
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">15 - 25</div><div class="result-kpi-pill-label">organisations approached</div></div>
+                            <div class="result-kpi-pill"><div class="result-kpi-pill-num">5 - 8</div><div class="result-kpi-pill-label">sponsor or partner conversations progressed</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="result-right">
+          <p class="block-label">Achieved KPIs</p>
+          <div class="result-achieved">
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Created communication plan and system for a 200+ attendee TEDx live event.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Approached 15 - 25 external organisations with aligned sponsor and partner messaging.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Progressed 5 - 8 organisations into active sponsor or partner conversations.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Kept speaker, stakeholder and public-facing updates moving through clearer approval routes.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evidence-gallery" tabindex="0">
+        <div class="evidence-gallery-track">
+          <div class="evidence-gallery-item"><img src="assets/work/01-tedx-greenwich/tedx-branding-signage.jpg" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/01-tedx-greenwich/tedx-event-promotion.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/01-tedx-greenwich/tedx-event-stage.jpg" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/01-tedx-greenwich/tedx-social-presence.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/01-tedx-greenwich/tedx-event-ticket.png" alt="" class="evidence-gallery-img"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    
+    </div>
+  </details>
+
+
+  <!-- ══════════════════════════════════════════
+       02. BASILDON BOROUGH COUNCIL
+  ══════════════════════════════════════════ -->
+  <details id="basildon" class="experience-card">
+    <summary>
+      <div class="experience-summary-main">
+        <span class="experience-chip">Public Events Campaign Plan</span>
+        <h3 class="experience-title">Basildon Borough Council</h3>
+        <p class="experience-descriptor">Public events campaign · audience planning · inclusion and evaluation</p>
+        <div class="experience-summary-tags">
+          <span class="experience-summary-tag">Public campaign</span>
+          <span class="experience-summary-tag">Events</span>
+          <span class="experience-summary-tag">Evaluation</span>
+        </div>
+      </div>
+      <span class="experience-toggle">
+        <span class="experience-toggle-open">Open project</span>
+        <span class="experience-toggle-close">Close project</span>
+      </span>
+    </summary>
+    <div class="experience-card-content">
+  
+
+  <div class="project-section">
+    <div class="project-header">
+      <div>
+        <div class="project-number">02 / 05</div>
+        <div class="project-org">Campaign proposal · 2025</div>
+        <div class="project-role">Events Coordinator Candidate</div>
+        <h2 class="project-title">Borough-wide Christmas campaign proposal: <em>safe, inclusive, and multi-site delivery.</em></h2>
+      </div>
+      <div>
+        <div class="project-proves-label">This project demonstrates</div>
+        <div class="project-proves-tags">
+          <span class="project-proves-tag">Public sector campaign planning</span>
+          <span class="project-proves-tag">Audience and inclusion</span>
+          <span class="project-proves-tag">Multi-site delivery</span>
+          <span class="project-proves-tag">Evaluation framework</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+      <div class="brief-kpi-row">
+        <div class="brief-block">
+          <p class="block-label">Project brief</p>
+          <h3 class="block-heading">Design a borough-wide Christmas events campaign that works across three town centres and multiple resident groups.</h3>
+          <div class="block-body">
+            <p>The brief asked for a public events programme that could bring residents together safely across Basildon, Billericay and Wickford. The campaign needed to balance celebration, inclusion, local business support, sponsorship income and post-campaign evaluation.</p>
+          </div>
+        </div>
+        <div class="kpi-block">
+          <p class="block-label">Key KPIs</p>
+          <div class="kpi-grid">
+            <div class="kpi-item">
+              <div class="kpi-num">6+</div>
+              <div class="kpi-label">public-facing events proposed across three town centres</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">80%</div>
+              <div class="kpi-label">resident satisfaction target built into evaluation</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">20 - 30%</div>
+              <div class="kpi-label">target income offset through sponsorship and local support</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="pii-row">
+        <div class="pii-block">
+          <p class="block-label">The gap</p>
+          <h3 class="block-heading">A borough-wide campaign could not rely on one audience, one channel or one town-centre experience.</h3>
+          <div class="block-body">
+            <p>The campaign needed to serve families, older residents, young people, diverse communities, residents with limited digital access and local businesses. Without a clear audience and delivery structure, the programme risked becoming fragmented across locations, channels and resident needs.</p>
+          </div>
+        </div>
+        <div class="pii-block">
+          <p class="block-label">What I noticed</p>
+          <h3 class="block-heading">Inclusive public events need access planned in from the start.</h3>
+          <div class="block-body">
+            <p>Different resident groups needed different routes into the campaign. Some would respond through digital channels, some through community spaces, some through local businesses and some through physical visibility across the town centres. Inclusion could not sit at the end of the plan. It had to shape the programme from the beginning.</p>
+          </div>
+        </div>
+        <div class="pii-block">
+          <p class="block-label">The approach</p>
+          <h3 class="block-heading">Build one campaign framework with audience, channel, governance and evaluation built in.</h3>
+          <div class="block-body">
+            <p>I structured the proposal around a six-strand events programme, supported by a multi-channel communications plan, a delivery timeline, governance checkpoints and a post-campaign evaluation framework tied to resident satisfaction, access and budget awareness.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="process-block process-block--phases">
+        <div class="process-left">
+          <p class="block-label">Process</p>
+          <h3 class="block-heading">How I built the proposal.</h3>
+        </div>
+        <div class="process-right">
+          <div class="event-timeline">
+            <div class="event-timeline-col">
+              <p class="event-timeline-label">Before launch</p>
+              <p class="event-timeline-copy">Mapped six audience groups and structured the campaign across Basildon, Billericay, and Wickford. Built a six-strand events programme with channel planning and stakeholder preparation.</p>
+            </div>
+            <div class="event-timeline-col">
+              <p class="event-timeline-label">During campaign</p>
+              <p class="event-timeline-copy">Connected town-centre events, community activity, and resident-facing communications through a multi-channel plan with launch and live-event messaging.</p>
+            </div>
+            <div class="event-timeline-col">
+              <p class="event-timeline-label">After campaign</p>
+              <p class="event-timeline-copy">Built evaluation into the timeline: resident feedback, satisfaction review, budget awareness, and governance checkpoints for future delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      
+      <div class="result-block">
+        <div class="result-left">
+          <p class="block-label">Final result</p>
+          <h3 class="block-heading">A borough-ready campaign proposal with audience access, delivery structure and evaluation built in.</h3>
+          <div class="block-body" style="margin-top: 1rem;">
+            <p>The proposal turned a broad public events brief into a practical campaign framework. It showed how events, communications, sponsorship, inclusion, governance and evaluation could work together across three town centres.</p>
+            <p>The value of the work was in making the campaign deliverable: clear audiences, clear channels, clear delivery checkpoints and a way to measure whether the programme had worked for residents.</p>
+            <div class="result-kpi-strip">
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">6+</div><div class="result-kpi-pill-label">public-facing events proposed</div></div>
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">80%</div><div class="result-kpi-pill-label">resident satisfaction target</div></div>
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">20 - 30%</div><div class="result-kpi-pill-label">target income offset</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="result-right">
+          <p class="block-label">Planned outcomes</p>
+          <div class="result-achieved">
+            
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Proposed 6+ public-facing events across Basildon, Billericay and Wickford.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Built an 80% resident satisfaction target into the evaluation framework.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Included a 20 - 30% income offset target through sponsorship and local support.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Mapped six audience groups with tailored access and communication routes.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Created a delivery model covering campaign timeline, governance, safety review and post-campaign evaluation.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evidence-gallery" tabindex="0">
+        <div class="evidence-gallery-track">
+          <div class="evidence-gallery-item"><img src="assets/work/02-basildon-borough-council/basildon-campaign-objectives.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/02-basildon-borough-council/basildon-audience-inclusion.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/02-basildon-borough-council/basildon-communications-strategy.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/02-basildon-borough-council/basildon-evaluation-and-reporting.png" alt="" class="evidence-gallery-img"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    </div>
+  </details>
+
+  <!-- ══════════════════════════════════════════
+       03. GOOD NUGGET / NDSA
+  ══════════════════════════════════════════ -->
+  <details id="goodNugget" class="experience-card">
+    <summary>
+      <div class="experience-summary-main">
+        <span class="experience-chip">Audience-Led Comms Repositioning</span>
+        <h3 class="experience-title">Good Nugget / NDSA</h3>
+        <p class="experience-descriptor">Communications repositioning · accessible messaging · channel strategy</p>
+        <div class="experience-summary-tags">
+          <span class="experience-summary-tag">Messaging</span>
+          <span class="experience-summary-tag">Accessibility</span>
+          <span class="experience-summary-tag">Content plan</span>
+        </div>
+      </div>
+      <span class="experience-toggle">
+        <span class="experience-toggle-open">Open project</span>
+        <span class="experience-toggle-close">Close project</span>
+      </span>
+    </summary>
+    <div class="experience-card-content">
+
+  <div class="project-section">
+    <div class="project-header">
+      <div>
+        <div class="project-number">03 / 05</div>
+        <div class="project-org">September 2024 to February 2025</div>
+        <div class="project-role">Strategic Communications Consultant</div>
+        <h2 class="project-title">Rebuilding audience communication <em>from complex mission to clearer message.</em></h2>
+      </div>
+      <div>
+        <div class="project-proves-label">This project demonstrates</div>
+        <div class="project-proves-tags">
+          <span class="project-proves-tag">Audience repositioning</span>
+          <span class="project-proves-tag">Tone of voice</span>
+          <span class="project-proves-tag">Accessible messaging</span>
+          <span class="project-proves-tag">Visual identity direction</span>
+          <span class="project-proves-tag">Social media strategy</span>
+          <span class="project-proves-tag">Stakeholder reporting</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <div class="work-mini">
+        <span class="work-mini-k">Project type</span>
+        <span class="work-mini-v">Brand strategy and communications repositioning</span>
+        <span class="work-mini-k">Audience</span>
+        <span class="work-mini-v">HR Directors · EDI Officers · Corporate teams · Neurodivergent communities</span>
+        <span class="work-mini-k">My input</span>
+        <span class="work-mini-v">Audience research · Tone of voice · Positioning · Visual identity direction · Social media strategy</span>
+      </div>
+
+      <div class="brief-kpi-row">
+        <div class="brief-block">
+          <p class="block-label">Project brief</p>
+          <h3 class="block-heading">Reposition NDSA’s communication for HR and EDI audiences without losing the lived-experience foundation.</h3>
+          <div class="block-body">
+            <p>The organisation needed to speak more clearly to HR Directors, EDI officers and corporate audiences while staying rooted in neurodivergent lived experience. The existing communication carried strong purpose, but the message was too dense, too internal and too difficult for new audiences to quickly act on. The work was to simplify the tone, sharpen the positioning and build a clearer communication system across brand, content and social media.</p>
+          </div>
+        </div>
+        <div class="kpi-block">
+          <p class="block-label">Key KPIs</p>
+          <div class="kpi-grid">
+            <div class="kpi-item">
+              <div class="kpi-num">12%</div>
+              <div class="kpi-label">engagement improvement across priority social channels</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">400 to 40</div>
+              <div class="kpi-label">mission statement simplified while keeping the core meaning</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">3</div>
+              <div class="kpi-label">core deliverables structured: tone of voice, visual identity and social media strategy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pii-row">
+        <div class="pii-block">
+          <p class="block-label">The gap</p>
+          <h3 class="block-heading">The organisation had a meaningful offer, but the message was too complex for the audience it needed to reach.</h3>
+          <div class="block-body">
+            <p>The existing communication was built around advocacy language and internal understanding. It explained the mission in detail, but it did not make the value easy enough for HR and EDI audiences to understand quickly. The tone was losing the message through over-complicated and saturated information.</p>
+          </div>
+        </div>
+        <div class="pii-block">
+          <p class="block-label">What I noticed</p>
+          <h3 class="block-heading">Audience repositioning needed more than shorter copy. It needed a clearer reason to care.</h3>
+          <div class="block-body">
+            <p>The audience needed simplicity, relevance and motivation. HR and EDI decision-makers did not just need neurodiversity education. They needed to understand the workplace problem, the value of NDSA’s expertise and the practical next step.</p>
+          </div>
+        </div>
+        <div class="pii-block">
+          <p class="block-label">The approach</p>
+          <h3 class="block-heading">Build a clearer brand communication system across message, tone, visual identity and social content.</h3>
+          <div class="block-body">
+            <p>I reframed the communication around audience need: clearer language, a sharper positioning route, a more supportive tone of voice, stronger visual direction and a social media strategy designed to educate, engage and convert HR and corporate audiences.</p>
+          </div>
+        </div>
+      </div>
+
+
+            <div class="process-block process-block--phases">
+        <div class="process-left">
+          <p class="block-label">Process</p>
+          <h3 class="block-heading">How I rebuilt the communication system.</h3>
+        </div>
+        <div class="process-right">
+          <div class="event-timeline">
+            <div class="event-timeline-col">
+              <p class="event-timeline-label">Audience and insight</p>
+              <p class="event-timeline-copy">Defined HR Directors, EDI officers, and corporate audiences. Used research to identify the need for simplicity, relevance, and motivation.</p>
+            </div>
+            <div class="event-timeline-col">
+              <p class="event-timeline-label">Message and tone</p>
+              <p class="event-timeline-copy">Simplified the mission statement from around 400 words to 40. Reworked tone from over-complicated to clear, actionable, and inclusive.</p>
+            </div>
+            <div class="event-timeline-col">
+              <p class="event-timeline-label">Channels and identity</p>
+              <p class="event-timeline-copy">Developed positioning, visual identity direction, and a social strategy across LinkedIn, Instagram, X, and email campaigns.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="work-mini">
+        <span class="work-mini-k">Before / after message</span>
+        <div class="work-mini-ba">
+          <div><strong>Before</strong>Over-complicated, saturated information that required too much effort from a new audience.</div>
+          <div><strong>After</strong>Clear, actionable and inclusive communication that made the value easier to understand.</div>
+        </div>
+        <p style="margin-top:0.75rem;font-size:13px;line-height:1.55;color:#3a3632;"><strong style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#8a7e6e;display:block;margin-bottom:0.35rem;">Motto shift</strong>From “Nothing about us, without us” feeling unclear and demanding in this context, to “With NDSA, it’s not just about inclusion - it’s about transformation.”</p>
+      </div>
+
+
+      <div class="result-block">
+        <div class="result-left">
+          <p class="block-label">Final result</p>
+          <h3 class="block-heading">A clearer brand communication system that made the offer easier to understand, position and communicate.</h3>
+          <div class="block-body" style="margin-top: 1rem;">
+            <p>The work moved the organisation from dense, internally familiar communication to a clearer audience-led brand system. The repositioning clarified who the message was for, what value NDSA offered and how the organisation could show up across tone of voice, visual identity and social content.</p>
+            <p>Engagement improved by 12%, but the more useful shift was structural: the organisation had a sharper answer to what it was saying, who it was for and why it mattered.</p>
+            <div class="result-kpi-strip">
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">12%</div><div class="result-kpi-pill-label">engagement improvement</div></div>
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">400 to 40</div><div class="result-kpi-pill-label">mission statement simplified</div></div>
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">3</div><div class="result-kpi-pill-label">core deliverables structured</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="result-right">
+          <p class="block-label">What changed</p>
+          <div class="result-achieved">
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Improved engagement by 12% across priority social channels.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Simplified the mission statement from around 400 words to 40 words while keeping the core intent.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Reframed the communication around HR Directors, EDI officers and corporate audiences.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Developed a clearer tone of voice direction: clear, actionable and inclusive.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Built recommendations across visual identity, social media strategy and future marketing materials.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evidence-gallery" tabindex="0">
+        <div class="evidence-gallery-track">
+          <div class="evidence-gallery-item"><img src="assets/work/03-good-nugget-ndsa/ndsa-audience-insight-venn.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/03-good-nugget-ndsa/ndsa-competitor-research-table.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/03-good-nugget-ndsa/ndsa-current-copy-analysis.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/03-good-nugget-ndsa/ndsa-mission-statement-before-after.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/03-good-nugget-ndsa/ndsa-motto-before-after.png" alt="" class="evidence-gallery-img"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    </div>
+  </details>
+
+  <!-- ══════════════════════════════════════════
+       04. PANGEA CAFÉ
+  ══════════════════════════════════════════ -->
+  <details id="pangea" class="experience-card">
+    <summary>
+      <div class="experience-summary-main">
+        <span class="experience-chip">Community Engagement Campaign</span>
+        <h3 class="experience-title">Pangea Café</h3>
+        <p class="experience-descriptor">Social impact · anti-racism comms · campaign rollout</p>
+        <div class="experience-summary-tags">
+          <span class="experience-summary-tag">Community engagement</span>
+          <span class="experience-summary-tag">Social purpose</span>
+          <span class="experience-summary-tag">Campaign strategy</span>
+        </div>
+      </div>
+      <span class="experience-toggle">
+        <span class="experience-toggle-open">Open project</span>
+        <span class="experience-toggle-close">Close project</span>
+      </span>
+    </summary>
+    <div class="experience-card-content">
+
+  <div class="project-section">
+    <div class="project-header">
+      <div>
+        <div class="project-number">04 / 05</div>
+        <div class="project-org">Community campaign concept proposal</div>
+        <div class="project-role">Campaign Strategist</div>
+        <h2 class="project-title">Building a community campaign <em>around coffee, belonging and anti-racism.</em></h2>
+      </div>
+      <div>
+        <div class="project-proves-label">This project demonstrates</div>
+        <div class="project-proves-tags">
+          <span class="project-proves-tag">Community engagement</span>
+          <span class="project-proves-tag">Social impact communication</span>
+          <span class="project-proves-tag">Audience insight</span>
+          <span class="project-proves-tag">Campaign strategy</span>
+          <span class="project-proves-tag">Activation planning</span>
+          <span class="project-proves-tag">Campaign messaging</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <div class="work-mini work-mini--snapshot">
+        <span class="work-mini-k">Project type</span>
+        <span class="work-mini-v">Community engagement campaign concept proposal</span>
+        <span class="work-mini-k">Campaign context</span>
+        <span class="work-mini-v">Anti-racism café campaign · Immigrant-owned business · Community connection</span>
+        <span class="work-mini-k">Audience</span>
+        <span class="work-mini-v">Socially conscious coffee lovers · Local café visitors · Diverse communities · People who value inclusive spaces</span>
+        <span class="work-mini-k">My input</span>
+        <span class="work-mini-v">Audience insight · Campaign strategy · Big idea · Rollout plan · Poster direction · Activation ideas</span>
+        <span class="work-mini-k">Campaign idea</span>
+        <span class="work-mini-v">#BrewedToUnite: Welcome Beyond Borders</span>
+      </div>
+
+      <div class="brief-kpi-row">
+        <div class="brief-block">
+          <p class="block-label">Project brief</p>
+          <h3 class="block-heading">Create a community engagement campaign that positions the café as a space for connection, belonging and anti-racism.</h3>
+          <div class="block-body">
+            <p>The brief needed a campaign idea that could respond to rising racism and xenophobia while staying rooted in what the café naturally represents: global ingredients, immigrant ownership, everyday gathering and cultural connection. The concept used coffee as a shared ritual to turn a social issue into a community-facing campaign.</p>
+          </div>
+        </div>
+        <div class="kpi-block">
+          <p class="block-label">Key KPIs</p>
+          <div class="kpi-grid">
+            <div class="kpi-item">
+              <div class="kpi-num">1</div>
+              <div class="kpi-label">community engagement campaign concept built around anti-racism and belonging</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">3</div>
+              <div class="kpi-label">rollout phases planned across tease, launch and sustain</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">4</div>
+              <div class="kpi-label">engagement routes proposed: posters, in-café activation, pop-ups and Instagram series</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pii-row">
+        <div class="pii-block">
+          <p class="block-label">The gap</p>
+          <h3 class="block-heading">The café had the ingredients of a community space, but the campaign needed to make that role visible.</h3>
+          <div class="block-body">
+            <p>The café already carried a strong story through its immigrant ownership, global ingredients and multicultural roots. The challenge was to turn that story into a public-facing campaign that could speak against racism without becoming heavy, generic or disconnected from the café experience.</p>
+          </div>
+        </div>
+        <div class="pii-block">
+          <p class="block-label">What I noticed</p>
+          <h3 class="block-heading">Coffee crosses borders before it reaches the cup.</h3>
+          <div class="block-body">
+            <p>The strongest insight was that coffee already carries the campaign message. It moves across countries, cultures, people and rituals. That made it a natural symbol for connection, giving the campaign a way to talk about belonging through something familiar, everyday and shared.</p>
+          </div>
+        </div>
+        <div class="pii-block">
+          <p class="block-label">The approach</p>
+          <h3 class="block-heading">Use coffee as the bridge between anti-racism communication and community participation.</h3>
+          <div class="block-body">
+            <p>I built the campaign around #BrewedToUnite: Welcome Beyond Borders. The idea translated the café's multicultural story into posters, in-café participation, pop-up conversations, community storytelling and social content that could invite people into the message instead of only asking them to observe it.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-block">
+        <div class="process-left">
+          <p class="block-label">Process</p>
+          <h3 class="block-heading">How I built the campaign concept.</h3>
+        </div>
+        <div class="process-right">
+          <div class="process-steps">
+            <div class="process-step">
+              <span class="process-step-num">01</span>
+              <span class="process-step-text">Defined the social problem: racism, xenophobia and the feeling of alienation experienced by immigrant and diverse communities.</span>
+            </div>
+            <div class="process-step">
+              <span class="process-step-num">02</span>
+              <span class="process-step-text">Mapped the audience: socially conscious coffee lovers, diverse local communities and people who value inclusive everyday spaces.</span>
+            </div>
+            <div class="process-step">
+              <span class="process-step-num">03</span>
+              <span class="process-step-text">Built the core insight around coffee as a universal connector across cultures, borders and conversations.</span>
+            </div>
+            <div class="process-step">
+              <span class="process-step-num">04</span>
+              <span class="process-step-text">Created the campaign idea: #BrewedToUnite: Welcome Beyond Borders.</span>
+            </div>
+            <div class="process-step">
+              <span class="process-step-num">05</span>
+              <span class="process-step-text">Planned the campaign rollout across tease, launch and sustain, including posters, in-café activation, pop-ups, Instagram content and community storytelling.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-mini">
+        <span class="work-mini-k">Campaign rollout</span>
+        <div class="work-mini-grid-3">
+          <div><strong class="work-mini-phase">Tease</strong>Cryptic posters, social teasers and café cues asking whether a cup of coffee can break barriers.</div>
+          <div><strong class="work-mini-phase">Launch</strong>Campaign posters, Unity Wall, Unity Brew concept and public-facing anti-racism messaging inside and outside the café.</div>
+          <div><strong class="work-mini-phase">Sustain</strong>Brewing Tales sessions, Community Spotlights, mascot-led anti-hate Instagram series and pop-up Coffee for Connection stalls.</div>
+        </div>
+      </div>
+
+      <div class="work-mini work-mini--message">
+        <span class="work-mini-k">Campaign line</span>
+        <span class="work-mini-v">#BrewedToUnite: Welcome Beyond Borders</span>
+        <span class="work-mini-k">Core thought</span>
+        <span class="work-mini-v">Coffee connects people across borders, cultures and everyday rituals.</span>
+        <span class="work-mini-k">Public message</span>
+        <span class="work-mini-v">At Pangea, every cup tells a story.</span>
+      </div>
+
+      <div class="result-block">
+        <div class="result-left">
+          <p class="block-label">Final result</p>
+          <h3 class="block-heading">A community engagement campaign concept that turned coffee into a symbol of connection.</h3>
+          <div class="block-body" style="margin-top: 1rem;">
+            <p>The concept turned the café's multicultural roots into a campaign platform for anti-racism, belonging and community participation. Instead of treating the café as only a place to buy coffee, the campaign positioned it as a space where people, cultures and stories could meet.</p>
+            <p>The value of the concept was in building a campaign that could move across message, space and participation: from posters and social content to in-café activations, pop-ups and community storytelling.</p>
+            <div class="result-kpi-strip">
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">1</div><div class="result-kpi-pill-label">campaign concept</div></div>
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">3</div><div class="result-kpi-pill-label">rollout phases</div></div>
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">4</div><div class="result-kpi-pill-label">engagement routes</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="result-right">
+          <p class="block-label">What the concept built</p>
+          <div class="result-achieved">
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Created a community engagement campaign concept for the café.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Built the big idea #BrewedToUnite: Welcome Beyond Borders.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Connected anti-racism communication to the café's global ingredients, immigrant ownership and community role.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Planned a tease, launch and sustain rollout across posters, in-café activation, pop-ups and Instagram content.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Developed campaign poster routes and public-facing messaging around belonging, connection and anti-racism.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evidence-gallery" tabindex="0">
+        <div class="evidence-gallery-track">
+          <div class="evidence-gallery-item"><img src="assets/work/04-pangea-cafe/pangea-campaign-strategy.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/04-pangea-cafe/pangea-brand-proposition.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/04-pangea-cafe/pangea-community-rollout.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/04-pangea-cafe/pangea-campaign-posters.png" alt="" class="evidence-gallery-img"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    </div>
+  </details>
+
+  <!-- ══════════════════════════════════════════
+       05. SALSETTE VODKA / THE STARTER LABS
+  ══════════════════════════════════════════ -->
+  <details id="salsetteVodka" class="experience-card">
+    <summary>
+      <div class="experience-summary-main">
+        <span class="experience-chip">Brand Launch Comms System</span>
+        <h3 class="experience-title">Salsette Vodka</h3>
+        <p class="experience-descriptor">Multi-brand content delivery · workflow systems · performance optimisation</p>
+        <div class="experience-summary-tags">
+          <span class="experience-summary-tag">Tone of voice</span>
+          <span class="experience-summary-tag">Campaign copy</span>
+          <span class="experience-summary-tag">Website copy</span>
+        </div>
+      </div>
+      <span class="experience-toggle">
+        <span class="experience-toggle-open">Open project</span>
+        <span class="experience-toggle-close">Close project</span>
+      </span>
+    </summary>
+    <div class="experience-card-content">
+
+  <div class="project-section">
+    <div class="project-header">
+      <div>
+        <div class="project-number">05 / 05</div>
+        <div class="project-org">2021 to 2022 · The Starter Labs</div>
+        <div class="project-role">Communications Strategist · The Starter Labs</div>
+        <h2 class="project-title">Building a brand launch system <em>from tone of voice to website copy.</em></h2>
+      </div>
+      <div>
+        <div class="project-proves-label">This project demonstrates</div>
+        <div class="project-proves-tags">
+          <span class="project-proves-tag">Communications strategy</span>
+          <span class="project-proves-tag">Brand messaging</span>
+          <span class="project-proves-tag">Tone of voice</span>
+          <span class="project-proves-tag">Launch campaign copy</span>
+          <span class="project-proves-tag">Website copy</span>
+          <span class="project-proves-tag">Content consistency</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <div class="work-mini">
+        <span class="work-mini-k">Project type</span>
+        <span class="work-mini-v">Brand launch communications system</span>
+        <span class="work-mini-k">Brand context</span>
+        <span class="work-mini-v">Homegrown premium vodka · Mumbai-rooted story · #StartWithSalsette</span>
+        <span class="work-mini-k">Audience</span>
+        <span class="work-mini-v">Legal-age urban consumers · Home hosts · Bar and restaurant owners · Premium spirits audience</span>
+        <span class="work-mini-k">My input</span>
+        <span class="work-mini-v">Communications strategy · Copy guide · Tone of voice · Launch campaign copy · Storyboard input · Website copy</span>
+        <span class="work-mini-k">Outcome</span>
+        <span class="work-mini-v">Live brand website and launch communication assets</span>
+      </div>
+
+      <div class="brief-kpi-row">
+        <div class="brief-block">
+          <p class="block-label">Project brief</p>
+          <h3 class="block-heading">Create a consistent brand voice and launch communication system for a homegrown premium brand.</h3>
+          <div class="block-body">
+            <p>The brand needed a communications system that could introduce a homegrown premium vodka brand with a clear Mumbai-rooted story. The work had to connect the name, product quality, local origin and launch idea into one consistent voice across the copy guide, social content, launch video direction and website copy.</p>
+          </div>
+        </div>
+        <div class="kpi-block">
+          <p class="block-label">Key KPIs</p>
+          <div class="kpi-grid">
+            <div class="kpi-item">
+              <div class="kpi-num">1</div>
+              <div class="kpi-label">copy guide created to define Salsette’s tone, vocabulary and writing rules</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">3</div>
+              <div class="kpi-label">launch communication streams supported: pre-launch, launch and product feature content</div>
+            </div>
+            <div class="kpi-item">
+              <div class="kpi-num">1</div>
+              <div class="kpi-label">website copy framework developed for the public-facing brand site</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pii-row">
+        <div class="pii-block">
+          <p class="block-label">The gap</p>
+          <h3 class="block-heading">The brand needed to feel premium, homegrown and consistent before launch.</h3>
+          <div class="block-body">
+            <p>The brand had a strong origin story and product proposition, but the communication needed a clear voice. The challenge was to avoid generic spirits language and build a brand world that connected Mumbai, smoothness, local sourcing and premium lifestyle cues without losing consistency across channels.</p>
+          </div>
+        </div>
+        <div class="pii-block">
+          <p class="block-label">What I noticed</p>
+          <h3 class="block-heading">The strongest route was not just product description. It was the idea of where the moment starts.</h3>
+          <div class="block-body">
+            <p>The name carried the heritage of Bombay and the energy of Mumbai. That gave the brand a stronger platform than product features alone. The communication needed to make #StartWithSalsette feel like a brand thought, not just a hashtag.</p>
+          </div>
+        </div>
+        <div class="pii-block">
+          <p class="block-label">The approach</p>
+          <h3 class="block-heading">Build the launch communication around origin, tone and repeatable brand language.</h3>
+          <div class="block-body">
+            <p>I supported the brand's communication strategy through a copy guide, tone of voice framework, launch campaign copy, storyboard feedback and website copy. The goal was to make every audience-facing touchpoint sound like one consistent brand, from launch content to the live website.</p>
+          </div>
+        </div>
+      </div>
+
+
+
+            <div class="process-block process-block--phases">
+        <div class="process-left">
+          <p class="block-label">Process</p>
+          <h3 class="block-heading">How I built the brand communication system.</h3>
+        </div>
+        <div class="process-right">
+          <div class="event-timeline">
+            <div class="event-timeline-col">
+              <p class="event-timeline-label">Foundation</p>
+              <p class="event-timeline-copy">Defined what the brand is, how it is made, and where it sits in the market. Built tone of voice guidance around homegrown pride and premium-but-approachable language.</p>
+            </div>
+            <div class="event-timeline-col">
+              <p class="event-timeline-label">Pre-launch and launch</p>
+              <p class="event-timeline-copy">Created writing rules and launch copy across grid concepts, #StartWithSalsette messaging, and product feature posts.</p>
+            </div>
+            <div class="event-timeline-col">
+              <p class="event-timeline-label">Live channels</p>
+              <p class="event-timeline-copy">Developed website copy for the brand story, USP sections, and cocktail recipe content so every touchpoint sounded like one brand.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="work-mini">
+        <span class="work-mini-k">Brand voice</span>
+        <span class="work-mini-v">Energetic, fun, sophisticated and homegrown.</span>
+        <dl class="work-mini-tone-list">
+          <dt>Sacred words</dt>
+          <dd>Premium · Spirit · Homegrown · Smooth · Classic · Distinguished · Experimental · Lively</dd>
+          <dt>Writing rules</dt>
+          <dd>Short headers, sentence case, British English and consistent #StartWithSalsette usage.</dd>
+        </dl>
+      </div>
+
+
+
+
+
+      <div class="result-block">
+        <div class="result-left">
+          <p class="block-label">Final result</p>
+          <h3 class="block-heading">A consistent launch communication system for a homegrown premium brand.</h3>
+          <div class="block-body" style="margin-top: 1rem;">
+            <p>The work turned the brand's origin, product features and Mumbai-rooted story into a connected brand communication system. The copy guide gave the brand a reusable voice, the launch content created a route for #StartWithSalsette, and the website copy translated the brand world into public-facing sections.</p>
+            <p>The outcome was not just individual copy assets. It was a strategic communication foundation that could support launch, social content, product education and the live website.</p>
+            <div class="result-kpi-strip">
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">1</div><div class="result-kpi-pill-label">copy guide</div></div>
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">3</div><div class="result-kpi-pill-label">launch streams</div></div>
+              <div class="result-kpi-pill"><div class="result-kpi-pill-num">1</div><div class="result-kpi-pill-label">website copy framework</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="result-right">
+          <p class="block-label">What the work built</p>
+          <div class="result-achieved">
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Built a copy guide to define tone, vocabulary and writing rules.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Helped shape #StartWithSalsette as a repeatable campaign and launch communication route.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Supported launch content across pre-launch, launch and product feature communication.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Developed website copy for the brand story, USP sections and cocktail recipe content.
+            </div>
+            <div class="result-achieved-item">
+              <div class="result-tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Created a consistent voice that could carry across social, campaign and website touchpoints.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evidence-gallery" tabindex="0">
+        <div class="evidence-gallery-track">
+          <div class="evidence-gallery-item"><img src="assets/work/05-salsette-vodka/salsette-product-storytelling.jpg" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/05-salsette-vodka/salsette-brand-visual.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/05-salsette-vodka/salsette-launch-visual.jpg" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/05-salsette-vodka/salsette-homegrown-campaign.jpg" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/05-salsette-vodka/salsette-lifestyle-visual.jpg" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/05-salsette-vodka/salsette-website-copy.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/05-salsette-vodka/salsette-brand-messaging.png" alt="" class="evidence-gallery-img"></div>
+          <div class="evidence-gallery-item"><img src="assets/work/05-salsette-vodka/salsette-social-presence.png" alt="" class="evidence-gallery-img"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    </div>
+  </details>
+  </section>
+
+  <!-- CREATIVE THINKING -->
+  
+  <div class="creative-section-wrap">
+  <div class="section-banner section-banner-stacked section-banner--creative">
+    <span class="section-banner-label">Creative Thinking</span>
+    <span class="section-banner-title">Concepts, briefs and idea routes</span>
+  </div>
+  <div class="supporting-intro-wrap">
+    <p class="supporting-intro">
+      This is the lighter, sharper side of the portfolio: quick-turn briefs, campaign routes, cultural copy and self-initiated ideas that show how I move from insight to idea, and from idea to message. These pieces sit beside the main project work and show range across behaviour change, cultural reference and brand strategy thinking.
+    </p>
+  </div>
+  <div class="creative-portfolio-strip">
+    <div>
+      <span class="creative-portfolio-label">Creative archive</span>
+      <p>A wider collection of quick-turn briefs, campaign concepts and copy-led ideas, from behaviour-change prompts to cultural copy routes and brand strategy exercises. Use it to see how I test ideas quickly before shaping them into fuller communication or campaign work.</p>
+    </div>
+    <a href="https://drive.google.com/drive/folders/1Am3PcqiOsB8O_0r98apL4xlWt3uvaNux" class="creative-portfolio-link" target="_blank" rel="noopener noreferrer">Open archive →</a>
+  </div>
+  <div class="creative-preview-wrap">
+    <span class="creative-preview-label">Archive preview</span>
+    <h3 class="creative-preview-heading">What you will find inside</h3>
+    <p class="creative-preview-intro">A quick look at the kinds of projects in the creative archive, from social-purpose campaigns to behaviour-change briefs, cultural copy routes and brand strategy exercises. Each one is short by design, but still shows insight, message direction and how an idea could travel into real communication.</p>
+  </div>
+  <section class="supporting-section">
+    <div class="supporting-grid">
+
+      <div class="supporting-card">
+        <div class="supporting-card-env">One Minute Brief · Behaviour campaign</div>
+        <h3 class="supporting-card-title">TFL Cycle to Work Day</h3>
+        <p class="supporting-card-body">
+          A quick-turn idea using the London Eye as a bicycle wheel, linking cycling, London identity and savings through one instant visual read.
+        </p>
+        <div class="supporting-card-tags">
+          <span class="supporting-card-tag">Quick concepting</span>
+          <span class="supporting-card-tag">Visual metaphor</span>
+          <span class="supporting-card-tag">Behaviour-change copy</span>
+        </div>
+      </div>
+
+      <div class="supporting-card">
+        <div class="supporting-card-env">Independent project · Brand strategy</div>
+        <h3 class="supporting-card-title">Lloyds Bank</h3>
+        <p class="supporting-card-body">
+          A post-rebrand strategy exercise exploring three ways to keep the brand active beyond launch: local pods, sustainability programming and a community platform.
+        </p>
+        <div class="supporting-card-tags">
+          <span class="supporting-card-tag">Brand strategy</span>
+          <span class="supporting-card-tag">Rebrand analysis</span>
+          <span class="supporting-card-tag">Strategic routes</span>
+        </div>
+      </div>
+
+      <div class="supporting-card">
+        <div class="supporting-card-env">One Minute Brief · Cultural copy route</div>
+        <h3 class="supporting-card-title">TaskRabbit</h3>
+        <p class="supporting-card-body">
+          Manchester music references reworked into poster routes for home-service categories, using cultural memory and humour to make utility easier to recall.
+        </p>
+        <div class="supporting-card-tags">
+          <span class="supporting-card-tag">Cultural insight</span>
+          <span class="supporting-card-tag">Copywriting</span>
+          <span class="supporting-card-tag">Campaign concept</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  </div>
+
+  <footer>
+    <span class="footer-name">Miti Karia</span>
+    <span class="footer-title">Communication that reaches people. Delivery that holds together.</span>
+    <span class="footer-links">
+      <a class="footer-link" href="mailto:mitikaria0810@gmail.com">Email</a>
+      <a class="footer-link" href="https://www.linkedin.com/in/mitikaria/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </span>
+  </footer>
+
+  <script src="assets/site-nav.js"></script>
+  <script>
+    (function () {
+      var navIconPrev = '<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 2.5L4.5 7 9 11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      var navIconNext = '<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 2.5L9.5 7 5 11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+      function initGalleryNav(gallery) {
+        if (gallery.dataset.navReady) return;
+        var track = gallery.querySelector('.evidence-gallery-track');
+        if (!track) return;
+        gallery.dataset.navReady = '1';
+
+        var prev = document.createElement('button');
+        prev.type = 'button';
+        prev.className = 'evidence-gallery-nav evidence-gallery-nav--prev';
+        prev.setAttribute('aria-label', 'Scroll evidence left');
+        prev.innerHTML = navIconPrev;
+
+        var next = document.createElement('button');
+        next.type = 'button';
+        next.className = 'evidence-gallery-nav evidence-gallery-nav--next';
+        next.setAttribute('aria-label', 'Scroll evidence right');
+        next.innerHTML = navIconNext;
+
+        gallery.insertBefore(prev, track);
+        gallery.appendChild(next);
+
+        function updateNav() {
+          var maxScroll = track.scrollWidth - track.clientWidth;
+          prev.disabled = maxScroll <= 4 || track.scrollLeft <= 4;
+          next.disabled = maxScroll <= 4 || track.scrollLeft >= maxScroll - 4;
+        }
+
+        function scrollGallery(direction) {
+          track.scrollBy({
+            left: direction * Math.max(track.clientWidth * 0.72, 260),
+            behavior: 'smooth'
+          });
+        }
+
+        prev.addEventListener('click', function () { scrollGallery(-1); });
+        next.addEventListener('click', function () { scrollGallery(1); });
+        track.addEventListener('scroll', updateNav, { passive: true });
+        window.addEventListener('resize', updateNav);
+        track.querySelectorAll('img').forEach(function (img) {
+          img.addEventListener('load', updateNav);
+        });
+
+        updateNav();
+        setTimeout(updateNav, 150);
+        setTimeout(updateNav, 600);
+      }
+
+      function bindGalleryMedia(img) {
+        const item = img.closest('.evidence-gallery-item');
+        if (!item || img.dataset.mediaBound) return;
+        img.dataset.mediaBound = '1';
+
+        img.addEventListener('load', function () {
+          if (img.naturalWidth > 0) item.classList.remove('is-error');
+        });
+
+        img.addEventListener('error', function () {
+          item.classList.add('is-error');
+        });
+
+        if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+          item.classList.add('is-error');
+        }
+      }
+
+      function deferMedia(card) {
+        card.querySelectorAll('.evidence-gallery-img').forEach(function (img) {
+          const src = img.getAttribute('src');
+          if (src && !img.dataset.src) {
+            img.dataset.src = src;
+            img.removeAttribute('src');
+            const item = img.closest('.evidence-gallery-item');
+            if (item) item.classList.remove('is-error');
+            delete img.dataset.mediaBound;
+          }
+        });
+      }
+
+      function loadMedia(card) {
+        card.querySelectorAll('.evidence-gallery-img').forEach(function (img) {
+          const src = img.dataset.src || img.getAttribute('src');
+          if (!src) return;
+          if (!img.getAttribute('src')) img.setAttribute('src', src);
+          bindGalleryMedia(img);
+        });
+        card.querySelectorAll('.evidence-gallery').forEach(initGalleryNav);
+      }
+
+      document.querySelectorAll('.experience-card').forEach(function (card) {
+        if (!card.open) deferMedia(card);
+
+        card.addEventListener('toggle', function () {
+          if (card.open) loadMedia(card);
+        });
+
+        if (card.open) loadMedia(card);
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
+
+
+

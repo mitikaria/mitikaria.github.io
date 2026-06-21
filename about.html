@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Miti Karia</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f2ed;
+      --dark: #1a1a1a;
+      --darker: #111;
+      --warm-brown: #6b5d4e;
+      --muted: #5a5a5a;
+      --light-muted: #8a7e6e;
+      --border: rgba(0,0,0,0.12);
+      --white: #ffffff;
+      --text-body: 17px;
+      --text-body-lh: 1.75;
+      --text-page: clamp(44px, 5vw, 64px);
+      --text-section: clamp(36px, 4vw, 48px);
+      --text-subsection: clamp(28px, 3vw, 36px);
+      --text-card: clamp(22px, 2.2vw, 28px);
+      --text-block: clamp(20px, 2vw, 24px);
+      --text-project: clamp(26px, 2.8vw, 34px);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: var(--text-body);
+      color: var(--dark);
+      background: var(--cream);
+      line-height: var(--text-body-lh);
+    }
+
+    /* NAV */
+    nav.site-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background: var(--cream);
+      border-bottom: 0.5px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      letter-spacing: -0.3px;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 14px;
+      color: #6b6b6b;
+      text-decoration: none;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-links a.active {
+      color: var(--dark);
+      border-bottom: 1px solid var(--dark);
+      padding-bottom: 2px;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 52vh;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .page-header-left {
+      padding: 5rem 3rem 4rem;
+      border-right: 0.5px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .page-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--light-muted);
+      border: 0.5px solid #c4b89e;
+      padding: 5px 12px;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+      width: fit-content;
+    }
+
+    .page-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: var(--text-page);
+      line-height: 1.06;
+      letter-spacing: -1.2px;
+      color: var(--dark);
+    }
+
+    .page-headline em {
+      font-style: italic;
+      color: var(--warm-brown);
+    }
+
+    .page-header-right {
+      padding: 5rem 3rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .page-intro {
+      font-size: var(--text-body);
+      color: var(--muted);
+      line-height: var(--text-body-lh);
+      max-width: 440px;
+    }
+    .page-intro + .page-intro {
+      margin-top: 1.1rem;
+    }
+    .page-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      border-top: 0.5px solid var(--border);
+      padding-top: 2rem;
+    }
+
+    .page-stat {
+      padding-right: 1.5rem;
+      border-right: 0.5px solid var(--border);
+    }
+
+    .page-stat:last-child { border-right: none; padding-right: 0; padding-left: 1.5rem; }
+    .page-stat:nth-child(2) { padding-left: 1.5rem; }
+
+    .page-stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+      margin-bottom: 0.25rem;
+    }
+
+    .page-stat-label {
+      font-size: 11px;
+      color: var(--light-muted);
+      line-height: 1.4;
+    }
+
+    /* SECTION BANNER */
+    .section-banner {
+      background: var(--white);
+      border-top: 3px solid var(--dark);
+      border-bottom: 0.5px solid var(--border);
+      padding: 1.5rem 3rem;
+    }
+
+    .section-banner h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: var(--text-section);
+      letter-spacing: -0.5px;
+      text-transform: none;
+      color: var(--dark);
+      line-height: 1.1;
+    }
+
+    /* STORY SECTION */
+    .story-section {
+      padding: 2rem 3rem 1.5rem;
+      border-bottom: 0.5px solid var(--border);
+      display: flex;
+      justify-content: center;
+    }
+    .story-shell {
+      width: 100%;
+      max-width: 980px;
+    }
+    .story-top-nav {
+      position: sticky;
+      top: 84px;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      padding: 0.75rem;
+      margin-bottom: 2rem;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(245,242,237,0.4));
+      backdrop-filter: blur(10px) saturate(120%);
+      -webkit-backdrop-filter: blur(10px) saturate(120%);
+      box-shadow: 0 12px 26px rgba(17,17,17,0.08);
+    }
+    .story-top-link {
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.6px;
+      color: #4e473e;
+      background: rgba(255,255,255,0.55);
+      border: 0.5px solid rgba(125,110,92,0.25);
+      border-radius: 999px;
+      padding: 8px 12px;
+      transition: transform 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .story-top-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(125,110,92,0.5);
+      background: rgba(255,255,255,0.8);
+    }
+    .story-top-link.is-active {
+      color: #30291f;
+      background: rgba(255,255,255,0.92);
+      border-color: rgba(125,110,92,0.58);
+      box-shadow: 0 4px 12px rgba(26,26,26,0.1);
+    }
+    .story-right {
+      padding: 0.5rem 0 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .story-block {
+      display: none;
+      margin-bottom: 0;
+      padding-bottom: 0.75rem;
+      border-bottom: none;
+    }
+    .story-block.is-visible { display: block; }
+
+    .story-block:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0.75rem;
+    }
+
+    .story-block-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--light-muted);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .story-block-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: var(--text-card);
+      letter-spacing: -0.4px;
+      color: var(--dark);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .story-block-heading em {
+      font-style: italic;
+      color: var(--warm-brown);
+    }
+
+    .story-block-body {
+      font-size: var(--text-body);
+      color: var(--muted);
+      line-height: var(--text-body-lh);
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .story-block-body p + p { margin-top: 1rem; }
+
+    .process-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.45rem 0.9rem;
+      padding: 1.35rem 3rem 1.45rem;
+      background: var(--white);
+      border-bottom: 0.5px solid var(--border);
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(15px, 1.85vw, 20px);
+      letter-spacing: -0.25px;
+      color: var(--dark);
+    }
+
+    .process-strip .process-step {
+      white-space: nowrap;
+    }
+
+    .process-strip .process-arrow {
+      color: var(--warm-brown);
+      font-size: 0.92em;
+      opacity: 0.72;
+      user-select: none;
+    }
+
+    /* WHAT I BRING */
+    .bring-section { border-bottom: 0.5px solid var(--border); }
+
+    .bring-left { padding: 4rem 3rem; }
+
+    .bring-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--light-muted);
+      margin-bottom: 1rem;
+    }
+
+    .bring-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: var(--text-card);
+      letter-spacing: -0.5px;
+      color: var(--dark);
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+
+    .bring-outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+      margin-top: 0.35rem;
+    }
+    .bring-outcome-cell {
+      background: var(--cream);
+      border: 0.5px solid var(--border);
+      border-radius: 3px;
+      padding: 0.85rem 0.9rem;
+    }
+    .bring-outcome-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--dark);
+      letter-spacing: -0.4px;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .bring-outcome-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .story-block-body--solo {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .bring-heading em {
+      font-style: italic;
+      color: var(--warm-brown);
+    }
+
+    .bring-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .bring-row:last-child { border-bottom: none; }
+
+    .pill-icon {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--dark);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pill-icon svg { width: 11px; height: 11px; }
+
+    .bring-row-label {
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--light-muted);
+      margin-bottom: 4px;
+    }
+
+    .bring-row-content {
+      font-size: 15px;
+      color: #3a3a3a;
+      line-height: 1.7;
+    }
+
+    .skill-group {
+      padding: 1rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .skill-group:last-child { border-bottom: none; }
+
+    .skill-group-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.2px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-tag {
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--cream);
+      border: 0.5px solid var(--border);
+      padding: 3px 9px;
+      border-radius: 2px;
+    }
+
+    /* EXPERIENCE TIMELINE */
+    .timeline-banner {
+      background: var(--dark);
+      padding: 1.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+      border-top: 3px solid rgba(255,255,255,0.1);
+    }
+
+    .timeline-banner-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      order: 2;
+    }
+
+    .timeline-banner-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: var(--text-subsection);
+      color: rgba(255,255,255,0.9);
+      order: 1;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--dark);
+      border-top: 0.5px solid rgba(255,255,255,0.08);
+    }
+
+    .timeline-item {
+      padding: 2.5rem 1.75rem;
+      border-right: 0.5px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+
+    .timeline-item:last-child { border-right: none; }
+
+    .timeline-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      margin-bottom: 1rem;
+    }
+
+    .timeline-date {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.3px;
+    }
+
+    .timeline-org {
+      font-family: 'DM Serif Display', serif;
+      font-size: 16px;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .timeline-role {
+      font-size: 13px;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.5;
+    }
+
+    /* EDUCATION */
+    .education-section {
+      padding: 3rem 3rem;
+      border-bottom: 0.5px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .edu-label {
+      font-family: 'DM Serif Display', serif;
+      font-size: var(--text-card);
+      letter-spacing: -0.3px;
+      text-transform: none;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .edu-item {
+      padding: 1rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .edu-item:first-of-type { border-top: 0.5px solid var(--border); }
+
+    .edu-degree {
+      font-family: 'DM Serif Display', serif;
+      font-size: 16px;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+
+    .edu-institution {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+      line-height: 1.5;
+    }
+    .edu-institution a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .edu-date {
+      font-size: 11px;
+      color: var(--light-muted);
+    }
+
+    .value-signal {
+      padding: 2.25rem 3rem;
+      background: #f9f6f1;
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      text-align: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: var(--text-card);
+      letter-spacing: -0.3px;
+      color: var(--dark);
+      line-height: 1.35;
+    }
+    .value-signal-label {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--light-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    /* FOOTER */
+    footer { padding: 2.5rem 3rem; background: var(--darker); display: flex; flex-direction: column; align-items: center; gap: 0.3rem; text-align: center; }
+    .footer-name { font-family: 'DM Serif Display', serif; font-size: 15px; color: rgba(255,255,255,0.68); }
+    .footer-title { font-size: 12px; color: rgba(255,255,255,0.32); letter-spacing: 0.5px; }
+    .footer-links { margin-top: 0.35rem; display: flex; gap: 0.8rem; }
+    .footer-link { font-size: 12px; color: rgba(255,255,255,0.6); text-decoration: underline; text-underline-offset: 2px; }
+    .footer-link:hover { color: rgba(255,255,255,0.86); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .page-tag      { animation: fadeUp 0.5s ease both 0.1s; }
+    .page-headline { animation: fadeUp 0.5s ease both 0.2s; }
+    .page-intro    { animation: fadeUp 0.5s ease both 0.3s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav.site-nav { padding: 1.25rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .page-header { grid-template-columns: 1fr; min-height: auto; }
+      .page-header-left { padding: 3rem 1.5rem 2.5rem; border-right: none; border-bottom: 0.5px solid var(--border); }
+      .page-header-right { padding: 2.5rem 1.5rem; }
+      .page-stats { grid-template-columns: repeat(3, 1fr); }
+      .section-banner { padding: 1.25rem 1.5rem; }
+      .story-section { padding: 1.5rem 1.5rem 1.5rem; }
+      .story-shell { max-width: 100%; }
+      .story-top-nav {
+        position: static;
+        margin-bottom: 1.5rem;
+        padding: 0.6rem;
+        border-radius: 12px;
+        width: 100%;
+      }
+      .story-top-link { font-size: 11px; padding: 7px 10px; }
+      .story-right { padding: 0; max-width: 100%; }
+      .process-strip {
+        padding: 1.1rem 1.5rem;
+        justify-content: flex-start;
+      }
+      .bring-left { padding: 2.5rem 1.5rem; border-right: none; border-bottom: 0.5px solid var(--border); }
+      .timeline-banner { padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; }
+      .timeline-grid { grid-template-columns: repeat(2, 1fr); }
+      .timeline-item { border-bottom: 0.5px solid rgba(255,255,255,0.06); }
+      .education-section { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
+      .value-signal { padding: 1.5rem 1.5rem; font-size: 18px; }
+      .bring-outcomes-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 1.25rem 1.5rem; }
+      .footer-links { flex-direction: column; gap: 0.35rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-name" data-site-nav="home">Miti Karia</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link-item" data-site-nav="home">Home</a></li>
+      <li><a href="about.html" class="nav-link-item" data-site-nav="about">About</a></li>
+      <li><a href="work.html" class="nav-link-item" data-site-nav="work">Work</a></li>
+      <li><a href="index.html#contact" class="nav-link-item" data-site-nav="contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-left">
+      <div>
+        <span class="page-tag">About</span>
+        <h1 class="page-headline">
+          From seven brands in Mumbai<br>
+          to a TEDx stage in London.<br>
+          <em>One thread running through all of it.</em>
+        </h1>
+      </div>
+    </div>
+    <div class="page-header-right">
+      <p class="page-intro">
+        I grew up between worlds, Mumbai and London, agency and academia, writing copy and coordinating communication across teams and channels. That background taught me something most people learn slowly: Good communication is not about finding the right words. It is about understanding why the message is not landing yet, and fixing the thing behind it.
+      </p>
+      <p class="page-intro">
+        That is what I do. Across stakeholder communication, campaigns, content delivery, and event comms. In environments where things move fast and the margin for confusion is small.
+      </p>
+      <div class="page-stats">
+        <div class="page-stat">
+          <div class="page-stat-num">3+</div>
+          <div class="page-stat-label">Years delivering communications across agency, higher education, charity, and operational environments</div>
+        </div>
+        <div class="page-stat">
+          <div class="page-stat-num">200</div>
+          <div class="page-stat-label">Attendees at the TEDx live event I coordinated communications for end to end</div>
+        </div>
+        <div class="page-stat">
+          <div class="page-stat-num">7</div>
+          <div class="page-stat-label">Brands held simultaneously at an agency, maintaining consistency across all of them</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- COMMUNICATION FOUNDATION -->
+  <div class="section-banner"><h2>Background and Experience</h2></div>
+  <section class="story-section">
+    <div class="story-shell">
+    <div class="story-right">
+      <nav class="story-top-nav" aria-label="Background and experience navigation">
+        <a href="#communication-foundation" class="story-top-link is-active">Communication foundation</a>
+        <a href="#what-work-taught-me" class="story-top-link">What the work taught me</a>
+        <a href="#how-i-work" class="story-top-link">How I work</a>
+        <a href="#building-towards" class="story-top-link">What I am building towards</a>
+      </nav>
+
+      <div class="story-block is-visible" id="communication-foundation">
+        <p class="story-block-label">Communication foundation</p>
+        <h2 class="story-block-heading">
+          Built through content delivery.<br>
+          <em>Strengthened by multi-channel work.</em>
+        </h2>
+        <div class="story-block-body story-block-body--solo">
+            <p>My communications background started at The Starter Labs in Mumbai, producing 60 to 100 content assets every month across seven FMCG and retail brands. Email, social, web, and paid media, running in parallel across multiple client accounts and deadlines.</p>
+            <p>That environment grounded me early in something that has stayed consistent across every role since: volume does not excuse inconsistency. If the message drifts between the brief and the published content, the audience notices. Keeping tone aligned, maintaining quality under pressure, and catching errors before they go out became habits I still rely on.</p>
+            <p>I moved to London to study Strategic Advertising and Marketing Communications at the University of Greenwich, which gave me the framework to apply that practical experience with more intention and structure.</p>
+        </div>
+      </div>
+
+      <div class="story-block" id="what-work-taught-me">
+        <p class="story-block-label">What the work taught me</p>
+        <h2 class="story-block-heading">
+          Most communication problems<br>
+          are not writing problems.<br>
+          <em>They are structure problems.</em>
+        </h2>
+        <div class="story-block-body story-block-body--solo">
+            <p>At TEDx Greenwich I coordinated communications across a public event series built around a 200+ attendee TEDx live event. Speakers, sponsors, university stakeholders, TED brand teams, external partners, all needing different things, at different times, with no room for a message to go out wrong.</p>
+            <p>What I learned from that: the writing is rarely where things break. Things break in the gaps. The brief that never got translated. The update that went to the wrong person. The approval that stalled because no one owned it. I started thinking less about how to write the message and more about how to build the system that gets it there.</p>
+            <p>At Good Nugget I took a neurodivergent-led organisation through a full communication repositioning, from B2C to B2B, from 400-word mission statements to 40-word ones, from scattered channel activity to a structured content plan. Engagement improved. The sharper outcome was clarity on what it was saying, who it was for and why it mattered.</p>
+            <p>At Pangea Café, the challenge was different: turning a social issue into a community-facing campaign concept. The work used coffee as a familiar entry point into anti-racism communication, building a campaign around belonging, cultural connection and participation rather than only awareness.</p>
+        </div>
+      </div>
+
+      <div class="story-block" id="how-i-work">
+        <p class="story-block-label">How I work</p>
+        <h2 class="story-block-heading">
+          Clear on the message.<br>
+          <em>Organised in delivery.</em>
+        </h2>
+        <div class="story-block-body story-block-body--solo">
+          <p>I work well in fast-moving environments with multiple stakeholders, timelines, and priorities. I'm used to managing approvals, keeping communication structured, and making sure the right information reaches the right audience clearly and on time.</p>
+        </div>
+      </div>
+
+      <div class="story-block" id="building-towards">
+        <p class="story-block-label">What I am building towards</p>
+        <h2 class="story-block-heading">
+          The best communication<br>
+          does more than explain.<br>
+          It <em>changes something.</em>
+        </h2>
+        <div class="story-block-body story-block-body--solo">
+            <p>The M+C Saatchi Open House is a selective industry programme. Getting in required a pitch. Staying engaged has required applying advertising and campaign thinking to live briefs from real clients, including Bundesliga. It has sharpened how I think about earned attention, about what makes a message stick, and about the gap between communication that is technically correct and communication that actually moves someone.</p>
+            <p>That thinking belongs in places where the audience is real, the stakes matter, and communication has to do more than fill a channel. Higher education, charities, public bodies and membership organisations all depend on trust, clarity and participation. Good communication in those spaces does not just explain what is happening. It helps people understand why it matters and what to do next.</p>
+            <p>The work page shows the detail. LinkedIn gives the fuller picture. Together, they show how I think, write and build communication around an audience.</p>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+  <!-- WHAT I BRING -->
+  <div class="section-banner"><h2>What I Bring</h2></div>
+  <section class="bring-section">
+    <div class="bring-left">
+      <p class="bring-label">Core capabilities</p>
+      <h2 class="bring-heading">Practical communication.<br><em>Organised delivery.</em></h2>
+
+      <div class="bring-row">
+        <div class="pill-icon">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="bring-row-label">Skills</div>
+          <div class="bring-row-content">Stakeholder communication · campaign coordination · content delivery · event communication · reporting and analysis</div>
+        </div>
+      </div>
+
+      <div class="bring-row">
+        <div class="pill-icon">
+          <svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4" stroke="white" stroke-width="1.2"/><path d="M6 4v2l1.5 1.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="bring-row-label">Tools and platforms</div>
+          <div class="bring-row-content">Mailchimp · HubSpot · Canva · WordPress · SharePoint · Asana · ClickUp · monday.com · Excel</div>
+        </div>
+      </div>
+
+      <div class="bring-row">
+        <div class="pill-icon">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M6 2C4.3 2 3 3.3 3 5c0 2.5 3 5 3 5s3-2.5 3-5c0-1.7-1.3-3-3-3z" stroke="white" stroke-width="1.2"/></svg>
+        </div>
+        <div>
+          <div class="bring-row-label">Work outcomes</div>
+          <div class="bring-outcomes-grid">
+            <div class="bring-outcome-cell">
+              <div class="bring-outcome-num">200+</div>
+              <div class="bring-outcome-desc">TEDx live event attendees supported through communications</div>
+            </div>
+            <div class="bring-outcome-cell">
+              <div class="bring-outcome-num">15 - 25</div>
+              <div class="bring-outcome-desc">Organisations reached through sponsor and partner outreach</div>
+            </div>
+            <div class="bring-outcome-cell">
+              <div class="bring-outcome-num">5 - 8</div>
+              <div class="bring-outcome-desc">Active sponsor or partner conversations progressed</div>
+            </div>
+            <div class="bring-outcome-cell">
+              <div class="bring-outcome-num">12%</div>
+              <div class="bring-outcome-desc">Engagement uplift through audience-led repositioning</div>
+            </div>
+            <div class="bring-outcome-cell">
+              <div class="bring-outcome-num">400 to 40</div>
+              <div class="bring-outcome-desc">Mission statement simplified while keeping core intent</div>
+            </div>
+            <div class="bring-outcome-cell">
+              <div class="bring-outcome-num">4</div>
+              <div class="bring-outcome-desc">Engagement routes proposed for Pangea anti-racism community campaign</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE TIMELINE -->
+  <div class="value-signal"><span class="value-signal-label">Strengths</span> Clarity · Coordination · Consistency · Audience understanding</div>
+  <div class="timeline-banner">
+    <span class="timeline-banner-label">Experience timeline</span>
+    <span class="timeline-banner-title">Where the work happened</span>
+  </div>
+  <div class="timeline-grid">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Sep 2024 to Feb 2025</div>
+      <div class="timeline-org">Good Nugget Academy / NDSA</div>
+      <div class="timeline-role">Consultant, Strategic Communications</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Feb 2024 to Jan 2025</div>
+      <div class="timeline-org">TEDx Greenwich</div>
+      <div class="timeline-role">Marketing Communications Associate</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Jun 2023 to Jan 2026</div>
+      <div class="timeline-org">BaxterStorey at University of Greenwich</div>
+      <div class="timeline-role">Team Assistant | Events and Stakeholder Support</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Sep 2021 to Aug 2022</div>
+      <div class="timeline-org">The Starter Labs</div>
+      <div class="timeline-role">Copywriter (Communications Strategist)</div>
+    </div>
+  </div>
+
+  <!-- EDUCATION AND TRAINING -->
+  <section class="education-section">
+    <div>
+      <p class="edu-label">Education and Training</p>
+      <div class="edu-item">
+        <div class="edu-degree">MA Strategic Advertising and Marketing Communications</div>
+        <div class="edu-institution"><a href="https://www.gre.ac.uk/" target="_blank" rel="noopener noreferrer">University of Greenwich</a></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">BA Mass Communications (Advertising)</div>
+        <div class="edu-institution"><a href="https://mu.ac.in/" target="_blank" rel="noopener noreferrer">University of Mumbai</a></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">Open House Training Programme</div>
+        <div class="edu-institution"><a href="https://mcsaatchi.com/" target="_blank" rel="noopener noreferrer">M+C Saatchi Open House (Recent)</a></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">Advanced Certificate in Advertising Management and PR</div>
+        <div class="edu-institution"><a href="https://www.mica.ac.in/" target="_blank" rel="noopener noreferrer">MICA</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Miti Karia</span>
+    <span class="footer-title">Communication that reaches people. Delivery that holds together.</span>
+    <span class="footer-links">
+      <a class="footer-link" href="mailto:mitikaria0810@gmail.com">Email</a>
+      <a class="footer-link" href="https://www.linkedin.com/in/mitikaria/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </span>
+  </footer>
+
+  <script src="assets/site-nav.js"></script>
+  <script>
+    (function () {
+      const nav = document.querySelector('.story-top-nav');
+      if (!nav) return;
+
+      const links = Array.from(nav.querySelectorAll('.story-top-link'));
+      const blocks = Array.from(document.querySelectorAll('.story-block'));
+
+      function showBlockById(id) {
+        links.forEach((link) => {
+          link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+        });
+        blocks.forEach((block) => {
+          block.classList.toggle('is-visible', block.id === id);
+        });
+      }
+
+      links.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const id = link.getAttribute('href').slice(1);
+          showBlockById(id);
+          history.replaceState(null, '', '#' + id);
+        });
+      });
+
+      const hashId = window.location.hash ? window.location.hash.slice(1) : '';
+      const hasMatch = blocks.some((block) => block.id === hashId);
+      showBlockById(hasMatch ? hashId : 'communication-foundation');
+    })();
+  </script>
+
+</body>
+</html>
